@@ -9,46 +9,8 @@ from openpyxl import load_workbook
 import random
 import sys
 
-#name, year
-bros = [('Deely', 19),
-        ('Carter', 19),
-        ('Murphy', 19),
-        ('Mutty', 19),
-        ('CJ', 15), #negative weight
-        ('Popik', 19),
-        ('Reilly', 19),
-        ('Tim', 19),
-        ('Seo', 19),
-        ('Noah', 14),
-        ('Dan', 16), #negative weight
-        ('Vince', 19),
-        ('Alden', 20),
-        ('Dylan', 20),
-        ('Kevin', 20),
-        ('Tony', 20),
-        ('Nic', 20),
-        ('Hakeem', 20),
-        ('Shubert', 20),
-        ('Aidan', 20),
-        ('Dillon', 21),
-        ('Pablo', 21),
-        ('Bowman', 21),
-        ('Adam', 21),
-        ('Nash', 21),
-        ('Timi', 21),
-        ('Paris', 21),
-        ('Rostam', 21),
-        ('Collin', 21),
-        ('Jason', 21),
-        ('Jonah', 22),
-        ('Gio', 22),
-        ('Cooper', 22),
-        ('Liam', 22),
-        ('Fiyi', 22),
-        ('Santoro', 22),
-        ('Ian', 22),
-        ('Brian', 22),
-        ('Kyri', 22)]
+#name, year pairs
+bros = open('NAMES.txt', 'r'),readlines()
 
 #assignment, difficulty 1-5
 assignments = [('Laundry Room', 1),
@@ -138,17 +100,6 @@ def get_diff(job):
     for jobs in assignments:
         if job == jobs[0]:
             return jobs[1]
-        
-def swap_senior(pos):
-    '''
-    Switch a senior with a later freshman
-    '''
-    offset = 0
-    while pos+offset < len(bros) and bros[pos+offset][1] <= 19:
-        offset += 1
-    if pos < len(bros) and pos+offset < len(bros):
-        bros[pos], bros[pos+offset] = bros[pos+offset], bros[pos]
-        
     
 ##potential updates, make floor buckets to pair residents w/ assignments
     
